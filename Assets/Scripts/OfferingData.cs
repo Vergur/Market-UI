@@ -18,7 +18,17 @@ public class OfferingData : ScriptableObject
     
     [Space] 
     [SerializeField] private ResourceCell[] _resourceCells; // Resources in pack
-    
+
+    public void Initialize(string title, string description, float priceWithDiscount, float discount, Sprite icon, ResourceCell[] resourceCells)
+    {
+        _title = title;
+        _description = description;
+        _priceWithDiscount = priceWithDiscount;
+        _discount = discount;
+        _icon = icon;
+        _resourceCells = resourceCells;
+    }
+
     public string Title { get => _title; }
     public string Description { get => _description; }
     public float PriceWithDiscount { get => _priceWithDiscount; }
