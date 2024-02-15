@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a70eda5d5cfee41918e78c44569167, type: 3}
+  m_Name: ShopOffering0
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 973133383183412185, guid: 24cce009022e8a442b5c632264fa16e3, type: 3}
+  _title: Rookie Pack
+  _description: Zip into the game with the Rookie Pack
+  _discount: 20
+  _priceWithDiscount: 5.99
+  _priceWithoutDiscount: 0
+  _resourceCells:
+  - _resourceData: {fileID: 11400000, guid: 760c452e24f05af45a15454237e238d0, type: 2}
+    _quantity: 100
+  - _resourceData: {fileID: 11400000, guid: 20e99f9e015ef834da86a23a1c5110e6, type: 2}
+    _quantity: 100
+  - _resourceData: {fileID: 11400000, guid: 7649d21c288da2f42bf76a03b370e8fe, type: 2}
+    _quantity: 20
+  - _resourceData: {fileID: 11400000, guid: c9454aa1b05a56c4fb3d87850e77161d, type: 2}
+    _quantity: 10
+  - _resourceData: {fileID: 11400000, guid: ceb04e2ac5e207e4b97696e6d9de738b, type: 2}
+    _quantity: 5
