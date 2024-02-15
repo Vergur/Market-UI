@@ -14,7 +14,7 @@ public class OfferingData : ScriptableObject
     [Header("Price Values")]
     [SerializeField] private float _discount;
     [SerializeField] private float _priceWithDiscount;
-    [SerializeField] private float _priceWithoutDiscount;
+    private float _priceWithoutDiscount;
     
     [Space] 
     [SerializeField] private ResourceCell[] _resourceCells; // Resources in pack

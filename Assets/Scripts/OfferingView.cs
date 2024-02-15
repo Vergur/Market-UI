@@ -35,8 +35,8 @@ public class OfferingView : MonoBehaviour
         {
             _itemLabels[i].text = $"{data.ResourceCells[i].ResourceData.ResourceName} x{data.ResourceCells[i].Quantity}";
         }
-        _currentPriceLabel.SetText( $"Current price: ${data.PriceWithDiscount}");
-        _previousPriceLabel.SetText($"{data.PriceWithoutDiscount}");
+        _currentPriceLabel.SetText( $"Current price: ${data.PriceWithDiscount}$");
+        _previousPriceLabel.SetText($"{data.PriceWithoutDiscount}$");
         _discountLabel.SetText($"{data.Discount}%");
         _bigIconImage.sprite = data.Icon;
     }
