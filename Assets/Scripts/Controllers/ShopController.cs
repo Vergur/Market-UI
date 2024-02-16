@@ -1,3 +1,4 @@
+using System.Collections;
 using Controllers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public abstract class ShopController : MonoBehaviour
     [SerializeField] private OfferView _offerViewPrefab;
     [SerializeField] private Button _offerButton;
     [SerializeField] private Transform _canvas;
+    [SerializeField] private GameObject _purchasedWindow;
     
     protected OfferView _view;
     
@@ -20,17 +22,33 @@ public abstract class ShopController : MonoBehaviour
     {
         _view = Instantiate(_offerViewPrefab, _canvas);
         EventsController.OnCloseOffer += HandleCloseButtonClick;
+        EventsController.OnPurchaseOffer += HandlePurchaseButtonClick;
         EventsController.FireChangeBackgroundState(true);
     }
 
     private void HandleCloseButtonClick()
     {
-        Destroy(_view.gameObject);
+        if (_view != null) Destroy(_view.gameObject);
         EventsController.OnCloseOffer -= HandleCloseButtonClick;
+    }
+    
+    private void HandlePurchaseButtonClick()
+    {
+        if (_view != null) Destroy(_view.gameObject);
+        EventsController.OnPurchaseOffer -= HandlePurchaseButtonClick;
+        StartCoroutine(PurchasedWindowControl());
+    }
+
+    private IEnumerator PurchasedWindowControl()
+    {
+        _purchasedWindow.SetActive(true);
+        yield return new WaitForSeconds(1);
+        _purchasedWindow.SetActive(false);
     }
 
     private void OnDestroy()
     {
         EventsController.OnCloseOffer -= HandleCloseButtonClick;
+        EventsController.OnPurchaseOffer -= HandlePurchaseButtonClick;
     }
 }

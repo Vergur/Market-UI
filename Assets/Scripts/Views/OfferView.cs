@@ -9,6 +9,7 @@ public class OfferView : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private Image _bigIconImage;
     [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _purchaseButton;
     
     [Header("Labels")]
     [SerializeField] private TextMeshProUGUI _titleLabel;
@@ -33,6 +34,7 @@ public class OfferView : MonoBehaviour
         _data.PriceWithoutDiscount = _data.PriceWithDiscount / (100 - _data.Discount) * 100; // Fake "real" price calculation 
         UpdateUI(_data);
         _closeButton.onClick.AddListener(CloseButton);
+        _purchaseButton.onClick.AddListener(PurchaseButton);
     }
 
     private void UpdateUI(OfferData data)
@@ -61,9 +63,10 @@ public class OfferView : MonoBehaviour
         EventsController.FireChangeBackgroundState(false);
     }
 
-    private void BuyButton()
+    private void PurchaseButton()
     {
-        Debug.Log("Buy");
-        EventsController.FireBuyOffer();
+        Debug.Log("Purchase");
+        EventsController.FirePurchaseOffer();
+        EventsController.FireChangeBackgroundState(false);
     }
 }

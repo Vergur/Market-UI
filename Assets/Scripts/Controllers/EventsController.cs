@@ -25,11 +25,11 @@ namespace Controllers
             OnChangeBackgroundState?.Invoke(state);
         }
         
-        public static Action OnBuyOffer;
+        public static Action OnPurchaseOffer;
 
-        public static void FireBuyOffer()
+        public static void FirePurchaseOffer()
         {
-            OnBuyOffer?.Invoke();
+            OnPurchaseOffer?.Invoke();
         }
     }
 }
