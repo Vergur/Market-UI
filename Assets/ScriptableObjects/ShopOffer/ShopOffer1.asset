@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a70eda5d5cfee41918e78c44569167, type: 3}
   m_Name: ShopOffer1
   m_EditorClassIdentifier: 
-  _icon: {fileID: 4963525815801888439, guid: 24cce009022e8a442b5c632264fa16e3, type: 3}
+  _icon: {fileID: -3680748762801769018, guid: 24cce009022e8a442b5c632264fa16e3, type: 3}
   _title: Confident Pack
   _description: Pack for confident people
   _discount: 30

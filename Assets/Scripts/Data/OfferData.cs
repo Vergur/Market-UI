@@ -17,7 +17,7 @@ public class OfferData : ScriptableObject
     private float _priceWithoutDiscount;
     
     [Space] 
-    [SerializeField] private List<ResourceCellData> _resourceCells; // Resources in pack
+    [SerializeField] private List<ResourceCellData> _resourceCells; // Resources in offer
 
     public void Initialize(string title, string description, float priceWithDiscount, float discount, Sprite icon, List<ResourceCellData> resourceCells)
     {

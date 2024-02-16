@@ -1,4 +1,4 @@
-using System;
+using Controllers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +24,6 @@ public class OfferView : MonoBehaviour
     
     private OfferData _data;
     
-    public event Action OnCloseOffer;
     
     public void Initialize(OfferData data)
     {
@@ -52,6 +51,7 @@ public class OfferView : MonoBehaviour
     private void CloseButton()
     {
         Debug.Log("Closed");
-        OnCloseOffer?.Invoke();
+        EventsController.FireCloseOffer();
+        EventsController.FireChangeBackgroundState(false);
     }
 }
