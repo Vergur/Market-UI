@@ -29,7 +29,7 @@ public class OfferView : MonoBehaviour
     public void Initialize(OfferData data)
     {
         _data = data;
-        _data.PriceWithoutDiscount = _data.PriceWithoutDiscount / (100 - _data.Discount) * 100; // Fake "real" price calculation 
+        _data.PriceWithoutDiscount = _data.PriceWithDiscount / (100 - _data.Discount) * 100; // Fake "real" price calculation 
         UpdateUI(_data);
         _closeButton.onClick.AddListener(CloseButton);
     }

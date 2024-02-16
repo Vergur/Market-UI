@@ -35,10 +35,12 @@ public class RandomOfferingController : ShopController
         _priceWithDiscount = Random.Range(0, 9) + 0.99f;
         _discount = Random.Range(10, 60);
         _icon = _iconsStorage.GetRandomSprite();
-        _resourceCells = new List<ResourceCellData>(Convert.ToInt32(_offeringsAmount.text));
-        foreach (var resourceCell in _resourceCells)
+        _resourceCells = new List<ResourceCellData>();
+        for (var i = 0; i < Convert.ToInt32(_offeringsAmount.text); i++) // Cells initialization
         {
+            var resourceCell = new ResourceCellData();
             resourceCell.SetValues(_resourceStorage.GetRandomResource(), Random.Range(1, 100));
+            _resourceCells.Add(resourceCell);
         }
     }
     
