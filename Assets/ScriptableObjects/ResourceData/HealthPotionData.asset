@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bbfdbce1a1a664d9d1794d62792dbc, type: 3}
   m_Name: HealthPotionData
   m_EditorClassIdentifier: 
-  _resourceName: HealthPotion
+  _resourceName: Potion
   _resourceSprite: {fileID: -5317649579687031756, guid: 266e3f8fb40f2594e8f789973d96006a, type: 3}

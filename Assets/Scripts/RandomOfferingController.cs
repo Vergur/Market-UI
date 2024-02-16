@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,17 +7,19 @@ using Random = UnityEngine.Random;
 
 public class RandomOfferingController : ShopController
 {
+    [Header("DefaultValues")]
     [SerializeField] private TMP_InputField _offeringsAmount;
-    [SerializeField] private Sprite[] _icons;
-    [SerializeField] private Sprite[] _sprites;
+    
+    [Header("Storages")]
     [SerializeField] private ResourceStorage _resourceStorage;
+    [SerializeField] private SpritesStorage _iconsStorage;
 
     private string _title;
     private string _description;
     private float _priceWithDiscount;
     private int _discount;
     private Sprite _icon;
-    private ResourceCell[] _resourceCells;
+    private List<ResourceCellData> _resourceCells;
     
     protected override void HandlePresetOfferingButtonClick()
     {
@@ -31,20 +34,18 @@ public class RandomOfferingController : ShopController
         _description = "This is the temporary offer";
         _priceWithDiscount = Random.Range(0, 9) + 0.99f;
         _discount = Random.Range(10, 60);
-        _icon = _icons[Random.Range(0, _icons.Length - 1)];
-        _resourceCells = new ResourceCell[Convert.ToInt32(_offeringsAmount.text)];
-        
+        _icon = _iconsStorage.GetRandomSprite();
+        _resourceCells = new List<ResourceCellData>(Convert.ToInt32(_offeringsAmount.text));
         foreach (var resourceCell in _resourceCells)
         {
-            resourceCell.ResourceData = _resourceStorage.GetRandomResource();
-            resourceCell.Quantity = Random.Range(1, 100);
+            resourceCell.SetValues(_resourceStorage.GetRandomResource(), Random.Range(1, 100));
         }
     }
     
-    private void Initialize(string title, string description, float priceWithDiscount, int discount, Sprite icon, ResourceCell[] resourceCells)
+    private void Initialize(string title, string description, float priceWithDiscount, int discount, Sprite icon, List<ResourceCellData> resourceCells)
     {
-        OfferingData _data = new OfferingData();
-        _data.Initialize(title, description, priceWithDiscount, discount, icon, resourceCells); // Random data initialize
-        _view.Initialize(_data);   // View model initialize
+        var data = new OfferData();
+        data.Initialize(title, description, priceWithDiscount, discount, icon, resourceCells); // Random data initialize
+        _view.Initialize(data);   // View model initialize
     }
 }

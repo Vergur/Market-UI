@@ -1,25 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShopOffering", menuName = "Custom/Shop Offering", order = 2)]
-public class OfferingData : ScriptableObject
+[CreateAssetMenu(fileName = "ShopOffer", menuName = "Custom/Shop Offer", order = 2)]
+public class OfferData : ScriptableObject
 {
+    [Header("Offer Icon")]
     [SerializeField] private Sprite _icon;
     
-    [Space] 
     [Header("Labels")]
     [SerializeField] private string _title;
     [SerializeField] private string _description;
 
-    [Space] 
     [Header("Price Values")]
     [SerializeField] private float _discount;
     [SerializeField] private float _priceWithDiscount;
     private float _priceWithoutDiscount;
     
     [Space] 
-    [SerializeField] private ResourceCell[] _resourceCells; // Resources in pack
+    [SerializeField] private List<ResourceCellData> _resourceCells; // Resources in pack
 
-    public void Initialize(string title, string description, float priceWithDiscount, float discount, Sprite icon, ResourceCell[] resourceCells)
+    public void Initialize(string title, string description, float priceWithDiscount, float discount, Sprite icon, List<ResourceCellData> resourceCells)
     {
         _title = title;
         _description = description;
@@ -35,5 +35,5 @@ public class OfferingData : ScriptableObject
     public float PriceWithoutDiscount { get => _priceWithoutDiscount; set => _priceWithoutDiscount = value; }
     public float Discount { get => _discount; }
     public Sprite Icon { get => _icon; }
-    public ResourceCell[] ResourceCells { get => _resourceCells; }
+    public List<ResourceCellData> ResourceCells { get => _resourceCells; }
 }
