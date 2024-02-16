@@ -1,3 +1,4 @@
+using System;
 using Controllers;
 using TMPro;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class OfferView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentPriceLabel;
     [SerializeField] private TextMeshProUGUI _previousPriceLabel;
     [SerializeField] private TextMeshProUGUI _discountLabel;
+    [SerializeField] private GameObject _discountBox;
 
     [Header("Prefabs")] 
     [SerializeField] private ResourceCellView _resourceCellPrefab;
@@ -42,9 +44,13 @@ public class OfferView : MonoBehaviour
             var cell = Instantiate(_resourceCellPrefab, _cellsContainer);
             cell.Initialize(cellData.ResourceData.ResourceSprite, cellData.ResourceData.ResourceName, cellData.Quantity);
         }
+
+        _discountBox.SetActive(data.IsDiscountAvailable);
+        _previousPriceLabel.gameObject.SetActive(data.IsDiscountAvailable);
+        
+        _discountLabel.SetText($"{data.Discount}%");
         _currentPriceLabel.SetText( $"${data.PriceWithDiscount:0.00}$");
         _previousPriceLabel.SetText($"{data.PriceWithoutDiscount:0.00}$");
-        _discountLabel.SetText($"{data.Discount}%");
         _bigIconImage.sprite = data.Icon;
     }
 
@@ -53,5 +59,11 @@ public class OfferView : MonoBehaviour
         Debug.Log("Closed");
         EventsController.FireCloseOffer();
         EventsController.FireChangeBackgroundState(false);
+    }
+
+    private void BuyButton()
+    {
+        Debug.Log("Buy");
+        EventsController.FireBuyOffer();
     }
 }

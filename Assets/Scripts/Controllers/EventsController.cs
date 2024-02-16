@@ -24,5 +24,12 @@ namespace Controllers
         {
             OnChangeBackgroundState?.Invoke(state);
         }
+        
+        public static Action OnBuyOffer;
+
+        public static void FireBuyOffer()
+        {
+            OnBuyOffer?.Invoke();
+        }
     }
 }

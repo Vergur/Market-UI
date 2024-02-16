@@ -5,7 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class RandomOfferingController : ShopController
+public class RandomOfferController : ShopController
 {
     [Header("DefaultValues")]
     [SerializeField] private TMP_InputField _offeringsAmount;
@@ -18,6 +18,7 @@ public class RandomOfferingController : ShopController
     private string _description;
     private float _priceWithDiscount;
     private int _discount;
+    private bool _isDiscountAvailable;
     private Sprite _icon;
     private List<ResourceCellData> _resourceCells;
     
@@ -25,14 +26,15 @@ public class RandomOfferingController : ShopController
     {
         base.HandlePresetOfferingButtonClick();
         SetValues();
-        Initialize(_title, _description, _priceWithDiscount, _discount, _icon, _resourceCells);
+        Initialize(_title, _description, _priceWithDiscount, _isDiscountAvailable, _discount, _icon, _resourceCells);
     }
 
     private void SetValues()
     {
         _title = "Random offer";
         _description = "This is the temporary offer";
-        _priceWithDiscount = Random.Range(0, 9) + 0.99f;
+        _priceWithDiscount = Random.Range(0, 10) + 0.99f;
+        _isDiscountAvailable = Random.Range(0, 2) == 1;
         _discount = Random.Range(10, 60);
         _icon = _iconsStorage.GetRandomSprite();
         _resourceCells = new List<ResourceCellData>();
@@ -44,10 +46,10 @@ public class RandomOfferingController : ShopController
         }
     }
     
-    private void Initialize(string title, string description, float priceWithDiscount, int discount, Sprite icon, List<ResourceCellData> resourceCells)
+    private void Initialize(string title, string description, float priceWithDiscount, bool isDiscountAvailable , int discount, Sprite icon, List<ResourceCellData> resourceCells)
     {
-        var data = new OfferData();
-        data.Initialize(title, description, priceWithDiscount, discount, icon, resourceCells); // Random data initialize
+        var data = ScriptableObject.CreateInstance<OfferData>();
+        data.Initialize(title, description, priceWithDiscount, isDiscountAvailable, discount, icon, resourceCells); // Random data initialize
         _view.Initialize(data);   // View model initialize
     }
 }

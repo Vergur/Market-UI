@@ -15,9 +15,9 @@ MonoBehaviour:
   _icon: {fileID: 973133383183412185, guid: 24cce009022e8a442b5c632264fa16e3, type: 3}
   _title: Rookie Pack
   _description: Zip into the game with the Rookie Pack
-  _discount: 20
+  _discount: 0
+  _isDiscountAvailable: 0
   _priceWithDiscount: 5.99
-  _priceWithoutDiscount: 0
   _resourceCells:
   - _resourceData: {fileID: 11400000, guid: 760c452e24f05af45a15454237e238d0, type: 2}
     _quantity: 100

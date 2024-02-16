@@ -16,6 +16,7 @@ MonoBehaviour:
   _title: Craft Pack
   _description: Pack for the craft
   _discount: 30
+  _isDiscountAvailable: 1
   _priceWithDiscount: 2.99
   _resourceCells:
   - _resourceData: {fileID: 11400000, guid: 20e99f9e015ef834da86a23a1c5110e6, type: 2}

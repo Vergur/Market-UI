@@ -16,6 +16,7 @@ MonoBehaviour:
   _title: Confident Pack
   _description: Pack for confident people
   _discount: 30
+  _isDiscountAvailable: 1
   _priceWithDiscount: 7.99
   _resourceCells:
   - _resourceData: {fileID: 11400000, guid: c9454aa1b05a56c4fb3d87850e77161d, type: 2}

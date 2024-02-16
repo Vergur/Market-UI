@@ -16,6 +16,6 @@ public class InputFieldController : MonoBehaviour
     
     private void ValueChangeCheck()
     {
-        _getRandomOfferButton.interactable = _offeringsAmount.text != "" && Convert.ToInt32(_offeringsAmount.text) >= 1 && Convert.ToInt32(_offeringsAmount.text) <= 6;
+        _getRandomOfferButton.interactable = _offeringsAmount.text != "" && Convert.ToInt32(_offeringsAmount.text) >= 3 && Convert.ToInt32(_offeringsAmount.text) <= 6;
     }
 }
